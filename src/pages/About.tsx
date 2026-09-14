@@ -22,7 +22,7 @@ export default function About() {
               Instagram
             </a>{" "}
             and{" "}
-            <a href="https://discord.gg/qKZhGbNq5" target="_blank" rel="noreferrer" style={{ color: RED }}>
+            <a href="https://discord.gg/x4WnvPywk2" target="_blank" rel="noreferrer" style={{ color: RED }}>
               Discord
             </a>
             .

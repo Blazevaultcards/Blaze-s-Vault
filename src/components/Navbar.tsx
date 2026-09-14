@@ -75,7 +75,7 @@ export default function Navbar() {
           </svg>
         </a>
         <a
-          href="https://discord.gg/qKZhGbNq5"
+          href="https://discord.gg/x4WnvPywk2"
           target="_blank"
           rel="noreferrer"
           aria-label="Discord"
