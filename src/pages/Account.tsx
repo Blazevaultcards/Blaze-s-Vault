@@ -11,13 +11,18 @@ export default function Account() {
 
   useEffect(() => {
     if (!user) return;
-    supabase
-      .from("orders")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
-      .then(({ data }) => setOrders((data as Order[]) || []))
-      .finally(() => setLoading(false));
+    (async () => {
+      try {
+        const { data } = await supabase
+          .from("orders")
+          .select("*")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: false });
+        setOrders((data as Order[]) || []);
+      } finally {
+        setLoading(false);
+      }
+    })();
   }, [user]);
 
   return (
