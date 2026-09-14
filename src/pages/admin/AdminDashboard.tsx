@@ -46,6 +46,13 @@ export default function AdminDashboard() {
               View Orders
             </Link>
             <Link
+              to="/admin/sell-requests"
+              className="px-4 py-2 rounded-lg text-sm font-medium"
+              style={{ border: `1px solid ${BORDER}`, color: "#b8a898" }}
+            >
+              Sell Requests
+            </Link>
+            <Link
               to="/admin/cards/new"
               className="px-4 py-2 rounded-lg text-sm font-semibold"
               style={{ background: `linear-gradient(135deg, ${RED}, #7a0f0f)`, color: "#fff" }}

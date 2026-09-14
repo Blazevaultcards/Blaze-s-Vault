@@ -25,20 +25,10 @@ export default function Sell() {
       setError("Couldn't submit right now — please DM @blazevaultcards on Instagram instead.");
       return;
     }
+    setName("");
+    setContact("");
+    setDetails("");
     setSubmitted(true);
-  }
-
-  if (submitted) {
-    return (
-      <div className="page-fade px-6 pt-32 pb-24 max-w-lg mx-auto text-center">
-        <h1 className="font-display font-black text-3xl mb-3" style={{ color: FG }}>
-          Got It 🔥
-        </h1>
-        <p className="text-sm" style={{ color: MUTED }}>
-          We'll take a look at your collection and reach out to make an offer.
-        </p>
-      </div>
-    );
   }
 
   return (
@@ -92,6 +82,44 @@ export default function Sell() {
           </a>{" "}
           on Instagram.
         </p>
+      </div>
+
+      {submitted && <ThankYouModal onClose={() => setSubmitted(false)} />}
+    </div>
+  );
+}
+
+function ThankYouModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center px-6"
+      style={{ background: "rgba(0,0,0,0.75)" }}
+      onClick={onClose}
+    >
+      <div
+        className="max-w-sm w-full rounded-2xl p-8 text-center"
+        style={{ background: CARD_BG, border: `1px solid ${BORDER}` }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="text-4xl mb-3">🔥</div>
+        <h2 className="font-display font-black text-2xl mb-2" style={{ color: FG }}>
+          Got It — Thank You!
+        </h2>
+        <p className="text-sm mb-6" style={{ color: MUTED }}>
+          We'll take a look at your collection and reach out with an offer soon.
+        </p>
+        <a
+          href="https://instagram.com/blazevaultcards"
+          target="_blank"
+          rel="noreferrer"
+          className="block w-full py-3 rounded-xl font-semibold text-sm mb-3"
+          style={{ background: `linear-gradient(135deg, ${RED}, #7a0f0f)`, color: "#fff" }}
+        >
+          Follow @blazevaultcards on Instagram
+        </a>
+        <button onClick={onClose} className="text-xs" style={{ color: MUTED }}>
+          Close
+        </button>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ import { OrderSuccess, OrderCancelled } from "@/pages/OrderResult";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
 import AdminCardForm from "@/pages/admin/AdminCardForm";
 import AdminOrders from "@/pages/admin/AdminOrders";
+import AdminSellRequests from "@/pages/admin/AdminSellRequests";
 import { RequireAuth, RequireAdmin } from "@/components/ProtectedRoute";
 import { BG } from "@/theme";
 
@@ -75,6 +76,14 @@ export default function App() {
           element={
             <RequireAdmin>
               <AdminOrders />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/sell-requests"
+          element={
+            <RequireAdmin>
+              <AdminSellRequests />
             </RequireAdmin>
           }
         />
